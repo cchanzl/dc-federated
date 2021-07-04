@@ -166,7 +166,7 @@ class MNISTSubSet(torch.utils.data.Dataset):
         """
 
         if kwargs is None:
-            kwargs = {'num_workers': 1, 'pin_memory': True} if use_cuda else {}
+            kwargs = {'num_workers': 0, 'pin_memory': True} if use_cuda else {}
 
         return torch.utils.data.DataLoader(
             self, batch_size=self.args.batch_size, shuffle=True, **kwargs)
