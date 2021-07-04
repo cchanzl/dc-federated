@@ -3,7 +3,7 @@ Simple runner to start FedAvgWorker for the MNIST dataset.
 """
 
 import argparse
-
+import multiprocessing as mp
 from dc_federated.algorithms.fed_avg.fed_avg_worker import FedAvgWorker
 from dc_federated.examples.mnist.mnist_fed_model import MNISTModelTrainer, MNISTSubSet
 
@@ -100,4 +100,5 @@ def run():
 
 
 if __name__ == '__main__':
+    mp.set_start_method('spawn', force=True)
     run()
