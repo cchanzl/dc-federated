@@ -3,6 +3,7 @@ Simple runner to start FedAvgServer server for the MNIST dataset.
 """
 import argparse
 import sys
+import torch
 
 from dc_federated.algorithms.fed_avg.fed_avg_server import FedAvgServer
 from dc_federated.examples.mnist.mnist_fed_model import MNISTModelTrainer, MNISTSubSet
@@ -79,5 +80,5 @@ def run():
 
 
 if __name__ == '__main__':
-    set_start_method('spawn')
+    torch.multiprocessing.set_start_method('spawn')
     run()
